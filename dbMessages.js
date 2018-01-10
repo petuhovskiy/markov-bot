@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 // init
 
-const url = process.env.MONGO_DB;
+const url = process.env.MONGO_DB_MSG;
 mongoose.connect(url);
 
 const db = mongoose.connection;
