@@ -1,0 +1,27 @@
+{
+  "name": "tg-reputation-bot",
+  "version": "1.0.0",
+  "description": "Telegram reputation bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/petuhovskiy/tg-reputation-bot.git"
+  },
+  "author": "Arthur Petukhovsky <petuhovskiy@yandex.ru>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/petuhovskiy/tg-reputation-bot/issues"
+  },
+  "homepage": "https://github.com/petuhovskiy/tg-reputation-bot#readme",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "mongodb": "^2.2.33",
+    "mongoose": "^4.13.5",
+    "node-telegram-bot-api": "^0.29.0",
+    "splice-string": "^2.0.0"
+  }
+}
