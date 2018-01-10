@@ -11,3 +11,5 @@ if (!token) {
 
 // init
 const bot = new TelegramBot(token, {polling: true})
+
+require('./handler')(bot)

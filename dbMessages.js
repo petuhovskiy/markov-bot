@@ -10,6 +10,23 @@ const db = mongoose.connection;
 
 const Message = mongoose.model('Message', new Schema({}, { strict: false }))
 
+const findByChat = (chatId) => {
+    return Message.find({'chat.id': chatId}).exec();
+}
+
+const findByChatAndUser = (chatId, username) => {
+        return Message.find({'chat.id': chatId, 'username': username}).exec();
+}
+
+const asText = (arr) => {
+    return arr
+        .map(it => it.text)
+        .join('\n');
+}
+
 module.exports = {
-    Message
+    Message,
+    findByChat,
+    findByChatAndUser,
+    asText
 }
