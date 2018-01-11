@@ -12,9 +12,8 @@ const main = (chatId, username, c, len) => {
     if (c < 1 || c > 10 || len < 1 || len > 300) {
         return Promise.resolve('No!');
     }
-    return
-        getText()
-            .then(it => it);
+    return getText(chatId, username)
+        .then(it => it);
 }
 
 module.exports = { main }
