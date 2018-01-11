@@ -20,6 +20,7 @@ const findByChatAndUser = (chatId, username) => {
 
 const asText = (arr) => {
     return arr
+        .map(it => it.toObject())
         .map(it => it.text)
         .join('\n');
 }

@@ -8,12 +8,16 @@ const getText = (chatId, username) => {
     }
 }
 
+const runMarkov = (text, c, len) => {
+    // TODO
+}
+
 const main = (chatId, username, c, len) => {
-    if (c < 1 || c > 10 || len < 1 || len > 300) {
+    if (!(c >= 1 && c <= 10) || !(len >= 1 && len <= 300)) {
         return Promise.resolve('No!');
     }
     return getText(chatId, username)
-        .then(it => it);
+        .then(it => runMarkov(it, c, len));
 }
 
 module.exports = { main }
