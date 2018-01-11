@@ -15,11 +15,11 @@ wchar_t generateNext(
     const map<PrevArr, int>& totalCnt,
     mt19937& rnd
 ) {
-    int total = totalCnt.at(arr);
-    if (total == 0) {
+    if (totalCnt.count(arr) == 0) {
         wcerr << wstring(arr.begin(), arr.end()) << " => 0\n";
         return 0;
     }
+    int total = totalCnt.at(arr);
     const auto& it = next.at(arr).lower_bound(rnd() % total + 1);
     // assert(it != next.at(arr).end());
     return it->second;
@@ -71,12 +71,18 @@ int main(int argc, const char *argv[]) {
 
     cerr << "Next counted\n";
 
+    if (base.size() <= n) {
+        cout << "too short text" << endl;
+        return 1;
+    }
+
     int pos = gen() % (base.size() - n) + n;
 
-    PrevArr arr(base.begin() + pos - n, base.begin() + pos);
-
-    for (wchar_t c : arr) {
-        wcout << c;
+    {
+        PrevArr arr(base.begin() + pos - n, base.begin() + pos);
+        for (wchar_t c : arr) {
+            wcout << c;
+        }
     }
 
     wchar_t nextChar;
