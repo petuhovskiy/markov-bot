@@ -30,7 +30,7 @@ const runMarkov = (text, c, len) => {
 }
 
 const main = (chatId, username, c, len) => {
-    if (!(c >= 1 && c <= 10) || !(len >= 1 && len <= 300)) {
+    if (!(c >= 1 && c <= 10) || !(len >= 1 && len <= 1000)) {
         return Promise.resolve('No!');
     }
     return getText(chatId, username)
