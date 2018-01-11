@@ -12,8 +12,8 @@ const parseUsername = u => {
 module.exports = bot => {
     bot.onText(/\/kek (@\w+) ([0-9]+) ([0-9]+)/, (msg, match) => {
         main(msg.chat.id, parseUsername(match[1]).username, parseInt(match[2]), parseInt(match[3]))
-            .then(msg => {
-                bot.sendMessage(msg.chat.id, msg);
+            .then(markov => {
+                bot.sendMessage(msg.chat.id, markov);
             })
     })
 }
