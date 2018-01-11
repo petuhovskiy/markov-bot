@@ -78,11 +78,9 @@ int main(int argc, const char *argv[]) {
 
     int pos = gen() % (base.size() - n) + n;
 
-    {
-        PrevArr arr(base.begin() + pos - n, base.begin() + pos);
-        for (wchar_t c : arr) {
-            wcout << c;
-        }
+    PrevArr arr(base.begin() + pos - n, base.begin() + pos);
+    for (wchar_t c : arr) {
+        wcout << c;
     }
 
     wchar_t nextChar;
