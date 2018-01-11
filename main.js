@@ -1,3 +1,5 @@
+const { execFile } = require('child_process')
+const stream   = require('stream')
 const db = require('./dbMessages')
 
 const getText = (chatId, username) => {
@@ -8,8 +10,23 @@ const getText = (chatId, username) => {
     }
 }
 
+const execCommand = (exe, args, input) => {
+    return new Promise((resolve, reject) => {
+        const child = execFile(exe, args, (error, stdout, stderr) => {
+            console.log('error = ', error);
+            console.log('stderr = ', stderr);
+            resolve(stdout);
+        });
+
+        const stdinStream = new stream.Readable();
+        stdinStream.push(input);  // Add data to the internal queue for users of the stream to consume
+        stdinStream.push(null);   // Signals the end of the stream (EOF)
+        stdinStream.pipe(child.stdin);
+    });
+}
+
 const runMarkov = (text, c, len) => {
-    // TODO
+    return execCommand('./markov', [c + '', len + ''], text);
 }
 
 const main = (chatId, username, c, len) => {

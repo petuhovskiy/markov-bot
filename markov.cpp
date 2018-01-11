@@ -4,6 +4,7 @@
 #include <map>
 #include <string>
 #include <utility>
+#include <locale.h>
 
 using namespace std;
 
@@ -35,6 +36,8 @@ wstring readAll() {
 }
 
 int main(int argc, const char *argv[]) {
+    setlocale(LC_ALL, "C.UTF-8");
+
     int n = std::atoi(argv[1]);
     size_t maxLen = std::atoi(argv[2]);
 
