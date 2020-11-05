@@ -18,5 +18,10 @@ module.exports = bot => {
             })
     })
 
-    bot.on('message', saveMessage);
+    bot.on('message', msg => {
+        if (msg.text.startsWith('/')) {
+            return;
+        }
+        saveMessage(msg);
+    });
 }
