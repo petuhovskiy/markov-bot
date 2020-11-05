@@ -31,5 +31,6 @@ module.exports = {
     Message,
     findByChat,
     findByChatAndUser,
-    asText
+    asText,
+    saveMessage,
 }
