@@ -5,6 +5,7 @@
 #include <string>
 #include <utility>
 #include <locale.h>
+#include <bits/stdc++.h>
 
 using namespace std;
 

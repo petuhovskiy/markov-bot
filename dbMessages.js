@@ -15,8 +15,10 @@ const findByChat = (chatId) => {
 }
 
 const findByChatAndUser = (chatId, username) => {
-        return Message.find({'chat.id': chatId, 'from.username': username}).exec();
+    return Message.find({'chat.id': chatId, 'from.username': username}).exec();
 }
+
+const saveMessage = msg => new Message(msg).save();
 
 const asText = (arr) => {
     return arr

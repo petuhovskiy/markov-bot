@@ -1,4 +1,5 @@
 const main = require('./main').main
+const saveMessage = require('./dbMessages').saveMessage
 
 const parseUsername = u => {
     let username = (u.indexOf('@') == 0) ? u.substring(1) : u;
@@ -16,4 +17,6 @@ module.exports = bot => {
                 bot.sendMessage(msg.chat.id, markov);
             })
     })
+
+    bot.on('message', saveMessage);
 }
